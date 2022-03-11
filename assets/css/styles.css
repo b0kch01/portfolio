@@ -55,6 +55,10 @@ img {
     justify-content: space-between;
 }
 
+.j-center {
+    justify-content: center;
+}
+
 .mr-03 {
     margin-right: 0.3em !important;
 }
@@ -63,11 +67,44 @@ img {
     margin-right: 1em;
 }
 
+.mr-3 {
+    margin-right: 3em;
+}
+
 .mb-3 {
     margin-bottom: 3em;
 }
 
+.mw-800 {
+    max-width: 800px;
+    margin: auto;
+}
+
 /* NICHE */
+
+.circle-btn {
+    display: flex;
+    width: 90px;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(.07,.76,.18,.92);
+    user-select: none;
+}
+
+.circle-btn:hover {
+    transform: scale(1.2) rotate(20deg);
+}
+
+.circle-btn:active {
+    transform: scale(1) rotate(20deg);
+}
+
+.circle-btn > img {
+    width: 50%;
+}
 
 .everything {
     display: flex;
@@ -78,17 +115,52 @@ img {
 
 .text-bg {
     position: absolute;
+    bottom: -1%;
     right: 0;
-    z-index: 999;
-    margin-top: auto;
-    margin-bottom: auto;
+    z-index: 0;
     font-size: 30vw;
     opacity: 0.05;
-    text-align: center;
+    text-align: right;
+}
+
+.text-bg > img {
+    width: 30vh;
 }
 
 .everything > * {
     scroll-snap-align: start;
+}
+
+/* CURSOR */
+#cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 69;
+    pointer-events: none;
+}
+
+#cursor.link__hover .pointer {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#cursor .pointer {
+    display: flex;
+    width: 70px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    background-color: #475569;
+    transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(.73,.11,.34,.94);
+    transition-delay: 0.24s;
+    box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px;
+}
+
+#cursor .pointer > img {
+    width: 60%;
+    opacity: 0.5;
 }
 
 /* NAV */
@@ -132,12 +204,13 @@ nav .nav-item {
 }
 
 nav .nav-item[special]:hover {
-    background: #ffdd5380;
+    background: #2a292480;
 }
 
 nav .nav-item:hover {
-    font-weight: 800;
+    opacity: 1;
 }
+
 
 nav .nav-wrapper > .line {
     display: block;
@@ -184,12 +257,12 @@ nav .nav-wrapper > *:not(.line) {
 }
 
 .name {
-    font-weight: 600;
-    /* text gradient */
+    font-weight: 700;
+    /* text gradient
     background: linear-gradient(to right, #ff4141, #e2ac17);
     background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; */
 }
 
 .center {
@@ -204,7 +277,7 @@ nav .nav-wrapper > *:not(.line) {
 
 section {
     width: 100%;
-    padding: max(150px, calc((100% - 1800px)/2)) max(calc((100% - 1800px)/2), 3rem) ;
+    padding: max(150px, calc((100% - 1800px)/2)) max(calc((100% - 1800px)/2), 3rem);
     background: white;
 }
 
@@ -218,6 +291,11 @@ section.reallydark {
 
 section.reallydark h1 {
     color: white;
+}
+
+section.short {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .spacer {
@@ -236,8 +314,8 @@ section.reallydark h1 {
     text-align: left;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: rgba(0,0,0,0.1) 0 5px 15px;
-    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.15) 0 5px 15px;
+    cursor: none;
     transition: all 0.4s cubic-bezier(.07,.76,.18,.92);
     background-color: #f3f4f6;
     margin-bottom: 2.2em;
@@ -250,15 +328,15 @@ section.reallydark h1 {
     min-width: 1000%;
     min-height: 1000%;
     transform: translateX(-50%) translateY(-50%) scale(0.1);
-    transition: opacity 0.7s cubic-bezier(.07,.76,.18,.92),
-                filter 0.7s cubic-bezier(.07,.76,.18,.92);
+    transition: opacity 0.5s cubic-bezier(.07,.76,.18,.92),
+                filter 0.3s cubic-bezier(.07,.76,.18,.92);
 }
 
 .card > .caption {
     padding: 10%;
     line-height: 1.5;
     transform: translateY(40%);
-    transition: transform 0.4s cubic-bezier(.07,.76,.18,.92), 
+    transition: transform 0.3s cubic-bezier(.07,.76,.18,.92), 
                 opacity 0.3s cubic-bezier(.07,.76,.18,.92);
     opacity: 0;
 }
@@ -273,8 +351,9 @@ section.reallydark h1 {
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: rgba(0,0,0,0.35) 0 18px 25px;
+    z-index: 999999;
+    transform: scale(1.05) rotate(1.5deg);
+    box-shadow: rgba(0,0,0,0.25) 0 18px 45px;
 }
 
 .card:hover > img {

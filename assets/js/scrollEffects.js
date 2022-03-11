@@ -57,11 +57,11 @@ lax.addElements(".navFadeOut", {
 lax.addElements(".navFadeIn", {
     scrollY: {
         opacity: [
-            ["screenHeight - 100", "screenHeight"],
+            ["screenHeight - 1000", "screenHeight"],
             [0, 1]
         ],
         translateY: [
-            ["screenHeight - 100", "screenHeight"],
+            ["screenHeight - 1000", "screenHeight"],
             [100, 0]
         ]
     }

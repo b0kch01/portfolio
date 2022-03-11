@@ -27,6 +27,7 @@ const debounce = (func, timeout = 300) => {
     // Updates the text based on letterIndex
     const update = () => {
         if (letterIndex == 0) {
+            document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_raised.png");
             return document.querySelector(".text").innerHTML = `
                 <span class="type-something" > Test out your keyboard...</span>
             `;
@@ -54,7 +55,6 @@ const debounce = (func, timeout = 300) => {
         if (!transferred && textHTML.includes(".  ")) {
             transferred = true;
             setTimeout(function () {
-                console.log("hello")
                 scroll.animateScroll(document.querySelector("#projects"));
             }, 1000);
         }
@@ -75,14 +75,28 @@ const debounce = (func, timeout = 300) => {
         if (e.key == "Backspace" || e.key == "Delete" || letterIndex >= TEXT.length) return;
 
         letterIndex++;
+
+        if (letterIndex % 2 == 0) {
+            document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_left.png");
+        } else {
+            document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_right.png");
+        }
+
         update();
+    });
+
+    document.addEventListener("keyup", e => {
+        document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_raised.png");
     });
 
     // Handle keys that don't type (like arrows)
     document.addEventListener("keydown", e => {
-        if (e.key == "Backspace" || e.key == "Delete")
-            if (letterIndex > 0)
+        if (!transferred && (e.key == "Backspace" || e.key == "Delete"))
+            if (letterIndex > 0) {
+                document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_right.png");
                 letterIndex--;
+            }
+
 
         update();
     });
