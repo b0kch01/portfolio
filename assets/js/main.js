@@ -18,7 +18,7 @@ const debounce = (func, timeout = 300) => {
     });
 
     const TEXT = (
-        `Hello, my name is Nathan Choi. I love to use the keyboard. Whether my fingers are coding, editing, or just typing, I am at peace. <br /> Thanks for visiting! :smile: `
+        `Hello, my name is Nathan Choi. I love to use the keyboard. Whether my fingers are coding, editing, or just typing, I am at peace. <br /> (scroll down :down-arrow:) `
     );
 
     var letterIndex = 0;
@@ -41,18 +41,18 @@ const debounce = (func, timeout = 300) => {
             .replace("> ", "&gt;</code>")
             .replace("&lt;br /&gt;", "<br><br>")
             .replaceAll("#", "<br><br>< class=special>")
-            .replace(":smile: ", "😄.  ")
+            .replace(":down-arrow:", "⏬")
             .replace("Nathan Choi", "<span class=name>Nathan Choi</span>");
 
         document.querySelector(".text").innerHTML = textHTML;
 
         // Check to see if rest of page unlocks
-        if (textHTML.includes("😄"))
+        if (textHTML.includes(")"))
             document.body.classList.add("open--sesame");
         else
             document.body.classList.remove("open--sesame");
 
-        if (!transferred && textHTML.includes(".  ")) {
+        if (!transferred && textHTML.includes(")")) {
             transferred = true;
             setTimeout(function () {
                 scroll.animateScroll(document.querySelector("#projects"));
