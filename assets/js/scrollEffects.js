@@ -32,14 +32,6 @@ lax.addElements(".fadein", {
     }
 });
 
-lax.addElements(".scalein", {
-    scrollY: {
-        scale: [
-            ["elInY", "elCenterY"],
-            [0.8, 1]
-        ]
-    }
-});
 
 lax.addElements(".navFadeOut", {
     scrollY: {
@@ -66,3 +58,14 @@ lax.addElements(".navFadeIn", {
         ]
     }
 });
+
+if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    lax.addElements(".scalein", {
+        scrollY: {
+            scale: [
+                ["elInY", "elCenterY - 200"],
+                [0.8, 1]
+            ]
+        }
+    });
+}

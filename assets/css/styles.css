@@ -49,10 +49,15 @@ img {
 .h-stack {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .s-between {
     justify-content: space-between;
+}
+
+.s-around {
+    justify-content: space-around;
 }
 
 .j-center {
@@ -225,6 +230,10 @@ nav .nav-wrapper > *:not(.line) {
     white-space: nowrap;
 }
 
+nav .m {
+    display: none;
+}
+
 /* HERO */
 .hero {
     display: flex;
@@ -277,8 +286,9 @@ nav .nav-wrapper > *:not(.line) {
 
 section {
     width: 100%;
-    padding: max(150px, calc((100% - 1800px)/2)) max(calc((100% - 1800px)/2), 3rem);
+    padding: max(150px, calc((100% - 1800px)/2)) max(calc((100% - 1800px)/2), 2rem);
     background: white;
+    overflow-x: hidden;
 }
 
 section.dark {
@@ -389,4 +399,29 @@ section.short {
 
 :root {
     --green: #16a34a;
+}
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 1000px) {
+    #contact .h-stack {
+        align-items: center;
+        text-align: center;
+    } 
+
+    .card {
+        width: 100%;
+    }
+
+    .h-stack .mr-3 {
+        margin: 10px;
+    }
+
+    nav .nav-item {
+        display: none;
+    }
+
+    nav .m {
+        display: block;
+    }
 }

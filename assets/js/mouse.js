@@ -1,4 +1,6 @@
 (function () {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) return;
+
     function isClickable(element, classname) {
         if (
             element.classList &&

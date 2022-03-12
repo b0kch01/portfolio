@@ -18,7 +18,7 @@ const debounce = (func, timeout = 300) => {
     });
 
     const TEXT = (
-        `Hello, my name is Nathan Choi. I love to use the keyboard. Whether my fingers are coding, editing, or just typing, I am at peace. <br /> Please, take a look around my museum :smile: `
+        `Hello, my name is Nathan Choi. I love to use the keyboard. Whether my fingers are coding, editing, or just typing, I am at peace. <br /> Thanks for visiting! :smile: `
     );
 
     var letterIndex = 0;
@@ -60,8 +60,11 @@ const debounce = (func, timeout = 300) => {
         }
     }
 
-    // If its not the original url or not #top, skip the intro
-    if (window.location.href.includes("#") && !window.location.href.includes("#top")) {
+    // If mobile or not the original url or not #top, skip the intro
+    if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ||
+        window.location.href.includes("#") && !window.location.href.includes("#top")
+    ) {
         transferred = true;
         letterIndex = TEXT.length;
         update();
