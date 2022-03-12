@@ -84,8 +84,8 @@ img {
 
 .circle-btn {
     display: flex;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     justify-content: center;
     align-items: center;
     background: white;

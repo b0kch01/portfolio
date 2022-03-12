@@ -231,4 +231,5 @@ var Confetti = (function () {
 (function () {
     const confetti1 = new Confetti("github-btn");
     confetti1.destroyTarget(false)
+    confetti1.setPower(75)
 })();
