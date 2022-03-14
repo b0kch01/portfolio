@@ -284,6 +284,15 @@ nav .m {
     color: #94a3b8;
 }
 
+hr {
+    display: block;
+    width: 100%;
+    height: 0.5px;
+    margin: 0;
+    background: rgba(0,0,0,0.1);
+    border: 0;
+}
+
 section {
     width: 100%;
     padding: max(150px, calc((100% - 1800px)/2)) max(calc((100% - 1800px)/2), 2rem);
@@ -306,6 +315,40 @@ section.reallydark h1 {
 section.short {
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+section#note {
+    display: flex;
+    width: 80%;
+    max-width:600px;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    padding: 10rem 0;
+    background: none;
+    overflow: visible;
+}
+
+section#note #words {
+    font-size: 18px;
+    line-height: 2;
+}
+
+section#note #words img {
+    display: block;
+    max-width: 100%;
+    max-height: 500px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(.07,.76,.18,.92);
+    box-shadow: rgba(0,0,0,0.25) 0 10px 25px;
+}
+
+section#note #words img:hover {
+    transform: scale(1.05) rotate(1.5deg);
+    box-shadow: rgba(0,0,0,0.25) 0 18px 45px;
 }
 
 .spacer {
