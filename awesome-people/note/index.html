@@ -62,7 +62,13 @@
                 fetch(notionLink)
                     .then((response) => response.text())
                     .then((html) => {
-                        document.querySelector("#words").innerHTML = html;
+                        if (html.includes("A server error has occurred")) {
+                            window.location.href =
+                                "https://nathanchoi.me/awesome-people/note/?p=" +
+                                prompt("Enter page ID:");
+                        } else {
+                            document.querySelector("#words").innerHTML = html;
+                        }
                     });
 
                 console.log(name, notionLink);
