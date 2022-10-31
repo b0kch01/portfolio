@@ -66,7 +66,7 @@
                             Test out your keyboard...
                         </span>
                     </span>
-                    <div class="cursor"></div>
+                    <div id="type-cursor" class="cursor"></div>
                 </div>
 
                 <div class="text-bg">
@@ -78,14 +78,16 @@
             </div>
 
             <section id="projects">
-                <img
-                    class="mr-1 spin fadein"
+                <div class="h-stack mb-1 fadein j-center">
+                    <img
+                    class="spin fadein"
                     src="/assets/images/icons/gift.svg"
                     width="55"
                 />
-                <h1 class="fadein">Projects</h1>
+                </div>
+                <h1 class="fadein">Side Projects</h1>
 
-                <h3 class="mb-3 fadein">no templates. no website builders.</h3>
+                <h3 class="mb-3 fadein">No templates. No website builders.</h3>
 
                 <div class="scalein h-stack s-between">
                     <a target="_blank" href="https://bigbrain.vercel.app">
@@ -249,14 +251,16 @@
             </section>
 
             <section id="work" class="dark">
-                <img
-                    class="mr-1 spin fadein"
-                    src="/assets/images/icons/print-alt.svg"
-                    width="55"
-                />
-                <h1 class="fadein">Work</h1>
+                <div class="h-stack mb-1 fadein j-center">
+                    <img
+                        class="spin fadein"
+                        src="/assets/images/icons/print-alt.svg"
+                        width="55"
+                    />
+                </div>
+                <h1 class="fadein">Work Experience</h1>
 
-                <h3 class="mb-3 fadein">building pages for organizations.</h3>
+                <h3 class="mb-3 fadein">Building pages for organizations.</h3>
 
                 <div class="scalein h-stack s-between">
                     <a target="_blank" href="https://baycats.org">
@@ -333,9 +337,9 @@
             <section id="contact" class="reallydark short">
                 <div class="h-stack s-around mw-800">
                     <div class="v-stack">
-                        <h1 class="">Contact</h1>
+                        <h1>Contact</h1>
 
-                        <h3 class="mb-3">Feel free to drop a message!</h3>
+                        <h3>Feel free to drop a message!</h3>
                     </div>
 
                     <div class="scalein h-stack j-center">
@@ -366,10 +370,11 @@
             </div>
         </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.3/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15/dist/smooth-scroll.polyfills.min.js"></script>
     <script src="/assets/js/lax/lax.js"></script>
+    <script src="/assets/js/confetti.js"></script>
+    <script src="/assets/js/mouse.js"></script>
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/scrollEffects.js"></script>
-    <script src="/assets/js/mouse.js"></script>
-    <script src="/assets/js/confetti.js"></script>
 </html>

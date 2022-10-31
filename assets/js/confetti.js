@@ -77,6 +77,16 @@ var Confetti = (function () {
                                             "hidden");
                                 });
                         }),
+                        (
+                        this.click = function (t, n) {
+                            // Get bounding rectangle
+                            var rect = document.getElementById("type-cursor").getBoundingClientRect();
+                            var n = new o(2 * rect.left + 2* window.scrollX, 2 * rect.top + 2 * window.scrollY);
+                            r.bursts.push(new i(n)),
+                                e.CONFIG.destroy_target &&
+                                (r.element.style.visibility =
+                                    "hidden");
+                        }),
                         (this.update = function (t) {
                             (r.delta_time = (t - r.time) / 1e3), (r.time = t);
                             for (var e = r.bursts.length - 1; e >= 0; e--)
@@ -226,10 +236,4 @@ var Confetti = (function () {
             );
         })();
     return e;
-})();
-
-(function () {
-    const confetti1 = new Confetti("github-btn");
-    confetti1.destroyTarget(false)
-    confetti1.setPower(75)
 })();

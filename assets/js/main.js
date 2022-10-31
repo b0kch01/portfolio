@@ -1,17 +1,13 @@
 // Made by Nathan Choi
 
-// Debounce function
-const debounce = (func, timeout = 300) => {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => func.apply(this, args), timeout);
-    };
-}
-
 // MAIN
 (function () {
-    var scroll = new SmoothScroll('a[href*="#"]', {
+    let confetti = new Confetti("type-cursor")
+    confetti.setPower(20)
+    confetti.setCount(1)
+    confetti.setFade(true)
+
+    let scroll = new SmoothScroll('a[href*="#"]', {
         speed: 900,
         speedAsDuration: true,
         easing: "easeInOutCubic"
@@ -41,7 +37,7 @@ const debounce = (func, timeout = 300) => {
             .replace("> ", "&gt;</code>")
             .replace("&lt;br /&gt;", "<br><br>")
             .replaceAll("#", "<br><br>< class=special>")
-            .replace(":down-arrow:", "⏬")
+            .replace(":down-arrow:", "↓")
             .replace("Nathan Choi", "<span class=name>Nathan Choi</span>");
 
         document.querySelector(".text").innerHTML = textHTML;
@@ -57,6 +53,10 @@ const debounce = (func, timeout = 300) => {
             setTimeout(function () {
                 scroll.animateScroll(document.querySelector("#projects"));
             }, 1000);
+        }
+
+        if (!transferred) {
+            confetti.click();
         }
     }
 
@@ -104,5 +104,5 @@ const debounce = (func, timeout = 300) => {
         update();
     });
 
-    console.log("🚗  Ready. Set. Go!");
+    console.log("🚗 Ready. Set. Go!");
 })();

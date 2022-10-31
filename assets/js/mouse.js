@@ -18,12 +18,11 @@
 
     // Custom cursor
     const cursorEl = document.querySelector("#cursor");
-    var mousePosition = { x: 0, y: 0 };
 
-    document.addEventListener("mousemove", event => {
-        mousePosition.x = event.clientX;
-        mousePosition.y = event.clientY;
+    let mouseEvent;
+    let mousePosition = { x: 0, y: 0 };
 
+    const requestAnimation = () => {
         requestAnimationFrame(function () {
             cursorEl.style.transform =
                 `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
@@ -38,5 +37,23 @@
                 document.body.style.cursor = "auto";
             }
         })
-    });
+    };
+
+    const updateMouseState = (e) => {
+        mouseEvent = e;
+        mousePosition.x = e.clientX;
+        mousePosition.y = e.clientY;
+
+        requestAnimation();
+    }
+
+    const updateMouseStateScroll = () => {
+        mousePosition.x = mouseEvent?.clientX ?? 0;
+        mousePosition.y = mouseEvent?.clientY ?? 0;
+
+        requestAnimation();
+    };
+
+    document.addEventListener("mousemove", updateMouseState);
+    window.addEventListener("scroll", updateMouseStateScroll);
 })();
