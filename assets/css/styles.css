@@ -156,30 +156,32 @@ img {
     left: 0;
     z-index: 69;
     pointer-events: none;
-    transition: 0.2s cubic-bezier(.28,.76,.68,.98);
+    transition: 0.1s cubic-bezier(.28,.76,.68,.98);
     mix-blend-mode: difference;
 }
 
 #cursor.link__hover .pointer {
-    transform: translate(-50%, -50%) scale(1);
+    width: 0;
+    height: 0;
+    border: 8px solid #fff;
 }
 
 #cursor .pointer {
     display: flex;
-    width: 10px;
-    height: 10px;
+    width: 25px;
+    height: 25px;
     justify-content: center;
     align-items: center;
-    background: #fff;
-    transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+    background: transparent;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
-    transition: all 0.5s cubic-bezier(.73,.11,.34,.94);
-    box-shadow: rgba(0, 0, 0, 0.15) 0 10px 20px;
+    border: #fff 2px solid;
+    transition: all 0.4s cubic-bezier(.28,.76,.68,.98);
 }
 
 #cursor .pointer > img {
     width: 60%;
-    opacity: 0.5;
+    opacity: 0;
 }
 
 /* NAV */
@@ -217,8 +219,10 @@ nav .nav-wrapper {
 }
 
 nav .nav-item {
+    color: #000;
     display: block;
     margin: 0 20px;
+    opacity: 0.8;
     transition: all .3s cubic-bezier(.07,.76,.18,.92);
 }
 
@@ -392,7 +396,7 @@ section#note #words img:hover {
     text-align: left;
     overflow: hidden;
     border-radius: 10px;
-    cursor: default;
+    cursor: pointer;
     box-shadow: 0 0 0 1px rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%), 0 12px 24px rgb(0 0 0 / 5%);
     background-color: #f3f4f6;
     margin-bottom: 2.2em;

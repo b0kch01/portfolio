@@ -29,7 +29,7 @@
 
             const hoveredEl = document.elementFromPoint(mousePosition.x, mousePosition.y);
 
-            if (isClickable(hoveredEl, "card")) {
+            if (isClickable(hoveredEl, "card") || isClickable(hoveredEl, "nav-item")) {
                 cursorEl.classList.add("link__hover");
                 document.body.style.cursor = "none";
             } else {
@@ -55,5 +55,5 @@
     };
 
     document.addEventListener("mousemove", updateMouseState);
-    window.addEventListener("scroll", updateMouseStateScroll);
+    document.addEventListener("scroll", updateMouseStateScroll);
 })();
