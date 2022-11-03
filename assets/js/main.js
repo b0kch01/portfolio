@@ -5,12 +5,29 @@
     let confetti = new Confetti("type-cursor")
     confetti.setPower(20)
     confetti.setCount(1)
-    confetti.setFade(true)
+    confetti.destroyTarget(false)
 
     let scroll = new SmoothScroll('a[href*="#"]', {
         speed: 900,
         speedAsDuration: true,
         easing: "easeInOutCubic"
+    });
+
+    anime({
+        targets: ".text-bg",
+        easing: "spring(1, 90, 90, 0)",
+        duration: 1500,
+        opacity: [0, 0.1],
+        translateY: ["50px", "0%"]
+    });
+
+    anime({
+        targets: ".reveal",
+        easing: "spring(1, 90, 12, 0)",
+        duration: 1500,
+        opacity: [0, 1],
+        translateY: ["100%", "0"],
+        delay: anime.stagger(55, {start: 500})
     });
 
     const TEXT = (
@@ -25,7 +42,20 @@
         if (letterIndex == 0) {
             document.getElementById("bongo").setAttribute("src", "/assets/images/bongo/bongo_raised.png");
             return document.querySelector(".text").innerHTML = `
-                <span class="type-something" > Test out your keyboard...</span>
+                <span class="type-something">
+                    <span>
+                        <span class='word'>Test</span>
+                    </span>
+                    <span>
+                        <span class='word'>out</span>
+                    </span>
+                    <span>
+                        <span class='word'>your</span>
+                    </span>
+                    <span>
+                        <span class='word'>keyboard...</span>
+                    </span>
+                </span>
             `;
         }
 

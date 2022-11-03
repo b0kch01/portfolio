@@ -2,15 +2,10 @@
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) return;
 
     function isClickable(element, classname) {
-        if (
-            element.classList &&
-            (
-                element.classList.contains(classname)
-            )
-        ) {
+        if (!element) { return false; }
+        if (element.classList && classname && element.classList.contains(classname)) {
             return true;
         }
-
         return element.parentNode && isClickable(element.parentNode, classname);
     }
 

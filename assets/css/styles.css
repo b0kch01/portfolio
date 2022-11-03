@@ -265,7 +265,7 @@ nav .m {
 
 .cursor {
     display: inline-block;
-    width: 3px;
+    width: 1.5px;
     height: 24px;
     background: #475569;
     transform: translateY(3px);
@@ -281,6 +281,12 @@ nav .m {
 
 .type-something {
     color: #94a3b8;
+}
+
+.type-something > span {
+    display: inline-flex;
+    padding: 35px 0;
+    overflow: hidden;
 }
 
 .name {

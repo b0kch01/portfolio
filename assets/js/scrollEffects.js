@@ -94,6 +94,7 @@ const initLax = () => {
 };
 
 const updateLax = debounce(() => {
+    console.log("RESIZING");
     initLax();
 }, 500);
 
