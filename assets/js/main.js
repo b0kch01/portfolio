@@ -2,6 +2,8 @@
 
 // MAIN
 (function () {
+
+
     let confetti = new Confetti("type-cursor")
     confetti.setPower(20)
     confetti.setCount(1)
@@ -27,11 +29,19 @@
         duration: 1500,
         opacity: [0, 1],
         translateY: ["100%", "0"],
-        delay: anime.stagger(55, {start: 500})
+        delay: anime.stagger(55, { start: 500 })
     });
 
+    anime({
+        targets: ".cursor",
+        easing: "spring(1, 90, 12, 0)",
+        duration: 1500,
+        opacity: [0, 1],
+        delay: 1500
+    })
+
     const TEXT = (
-        `Hello, my name is Nathan Choi. I love to use the keyboard. Whether my fingers are coding, editing, or just typing, I am at peace. <br /> (scroll down :down-arrow:) `
+        `Hello, my name is Nathan Choi. I am a full-stack engineer focusing on solving real problems with web and mobile applications. <br /> (scroll down :down-arrow:) `
     );
 
     var letterIndex = 0;
@@ -73,16 +83,18 @@
         document.querySelector(".text").innerHTML = textHTML;
 
         // Check to see if rest of page unlocks
-        if (textHTML.includes(")"))
+        if (textHTML.includes("("))
             document.body.classList.add("open--sesame");
         else
             document.body.classList.remove("open--sesame");
 
         if (!transferred && textHTML.includes(")")) {
             transferred = true;
-            setTimeout(function () {
-                scroll.animateScroll(document.querySelector("#projects"));
-            }, 1000);
+            if (window.scrollY < 100) {
+                setTimeout(function () {
+                    scroll.animateScroll(document.querySelector("#projects"));
+                }, 1000);
+            }
         }
 
         if (!transferred) {

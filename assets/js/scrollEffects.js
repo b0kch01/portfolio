@@ -30,16 +30,16 @@ const initLax = () => {
             ]
         }
     });
-    
+
     lax.addElements(".fadein", {
         scrollY: {
             translateY: [
                 ["elInY", "elCenterY"],
-                [150, 0]
+                [-150, 0]
             ],
             scale: [
                 ["elInY", "elCenterY"],
-                [0.5, 1]
+                [0.8, 1]
             ],
             opacity: [
                 ["elInY", "elOutY - 100"],
@@ -47,8 +47,8 @@ const initLax = () => {
             ]
         }
     });
-    
-    
+
+
     lax.addElements(".navFadeOut", {
         scrollY: {
             opacity: [
@@ -61,7 +61,7 @@ const initLax = () => {
             ]
         }
     });
-    
+
     lax.addElements(".navFadeIn", {
         scrollY: {
             opacity: [
@@ -74,14 +74,14 @@ const initLax = () => {
             ]
         }
     });
-    
+
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         VanillaTilt.init(document.querySelectorAll(".card"), {
             max: 5,
             glare: true,
             speed: 1000
         });
-    
+
         lax.addElements(".scalein", {
             scrollY: {
                 scale: [
