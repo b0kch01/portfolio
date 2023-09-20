@@ -51,4 +51,6 @@
 
     document.addEventListener("mousemove", updateMouseState);
     document.addEventListener("scroll", updateMouseStateScroll);
+
+    updateMouseState();
 })();
