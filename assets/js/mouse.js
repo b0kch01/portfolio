@@ -20,7 +20,7 @@
     const requestAnimation = () => {
         requestAnimationFrame(function () {
             cursorEl.style.transform =
-                `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
+                `translate(${mousePosition.x}px, ${mousePosition.y}px); opacity: 1`;
 
             const hoveredEl = document.elementFromPoint(mousePosition.x, mousePosition.y);
 
@@ -51,6 +51,4 @@
 
     document.addEventListener("mousemove", updateMouseState);
     document.addEventListener("scroll", updateMouseStateScroll);
-
-    updateMouseState();
 })();
