@@ -154,9 +154,10 @@ img {
     position: fixed;
     top: 0;
     z-index: 69;
-    opacity: 0;
     pointer-events: none;
-    transition: 0.1s cubic-bezier(.28,.76,.68,.98);
+    opacity: 0;
+    transition: transform 0.1s cubic-bezier(.28,.76,.68,.98) 0s,
+                opacity 0.4s ease-in-out 0.15s;
     mix-blend-mode: difference;
 }
 

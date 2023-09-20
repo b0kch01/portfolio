@@ -20,7 +20,8 @@
     const requestAnimation = () => {
         requestAnimationFrame(function () {
             cursorEl.style.transform =
-                `translate(${mousePosition.x}px, ${mousePosition.y}px); opacity: 1`;
+                `translate(${mousePosition.x}px, ${mousePosition.y}px)`;
+            cursorEl.style.opacity = 1;
 
             const hoveredEl = document.elementFromPoint(mousePosition.x, mousePosition.y);
 
